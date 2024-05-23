@@ -1,0 +1,185 @@
+.kanban {
+  margin-top: 40px;
+  &__title {
+    margin-bottom: 30px;
+  }
+  &__btn {
+    padding: 10px 24px;
+    background: dodgerblue;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+  }
+  &__edit-wrapper {
+    position: relative;
+    z-index: -233;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    transform: translateY(100px);
+    height: 115px;
+    transition: all 0.5s ease;
+  }
+  &__edit-show {
+    transform: translateY(0);
+    z-index: 0;
+    opacity: 1;
+  }
+  &__edit-from {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 40px;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: 0px 05px 10px #2222227d;
+    input {
+      padding: 8px 20px 8px 10px;
+      outline: none;
+      border: 1px solid #2222;
+      box-shadow: 0px 05px 10px #fff;
+      border-radius: 8px;
+    }
+    button {
+      padding: 6px 20px;
+      background-color: aqua;
+      border: none;
+      border-radius: 20px;
+      font-weight: 500;
+      color: #222222ba;
+    }
+  }
+  &__wrapper {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    align-items: flex-start;
+  }
+  &__block {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    max-height: 600px;
+    overflow: auto;
+    &__icon{
+      font-size: 60px;
+      display: block;
+      width: 100%;
+      margin: auto 0;
+    }
+  }
+  &__box {
+    min-height: 300px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    background: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__heading {
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+  }
+
+  &__item {
+    min-height: 100px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #0001;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &__top-boxes {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      button {
+        background-color: rgb(255, 187, 0);
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      outline: none;
+    }
+  }
+  &__commit {
+    font-size: 14px;
+    color: #999;
+    flex: 1;
+  }
+  &__status {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    span {
+      font-size: 11px;
+      color: #999;
+    }
+  }
+  &__add_btn {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  .ready {
+    border-left: 4px solid #5559d6;
+    .kanban__heading {
+      background: #5559d6;
+    }
+  }
+  .working {
+    border-left: 4px solid #f1ae53;
+    .kanban__heading {
+      background: #f1ae53;
+    }
+  }
+  .stuck {
+    border-left: 4px solid #d04f61;
+    .kanban__heading {
+      background: #d04f61;
+    }
+  }
+  .done {
+    border-left: 4px solid #5dc47d;
+    .kanban__heading {
+      background: #5dc47d;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .kanban {
+    &__block {
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 8px;
+      }
+    }
+  }
+}
